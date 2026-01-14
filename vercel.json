@@ -24,7 +24,7 @@
       "destination": "/national-blueprint-main/index.html"
     },
     {
-      "source": "/((?!api/).*)",
+      "source": "/((?!assets/|api/).*)",
       "destination": "/national-blueprint-main/index.html"
     }
   ],
