@@ -16,7 +16,6 @@ type MenuKey = 'about' | 'whatWeDo' | 'programs' | 'howWeDeliver' | null;
 const navItems: { key: MenuKey; label: string; href: string }[] = [
   { key: 'about', label: 'About', href: '/about' },
   { key: 'whatWeDo', label: 'Services', href: '/what-we-do' },
-  { key: null, label: 'Who We Are', href: '/about/who-we-are' },
   { key: 'programs', label: 'Programs', href: '/programs' },
   { key: 'howWeDeliver', label: 'Process', href: '/how-we-deliver' },
   { key: null, label: 'Impact', href: '/impact' },

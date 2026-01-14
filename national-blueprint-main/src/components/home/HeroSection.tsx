@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { SimpleVideoHero } from '@/components/ui/SimpleVideoHero';
+import { VideoHero } from '@/components/ui/VideoHero';
 
 const metrics = [
   { value: '$10B+', label: 'Institutional AUM Target' },
@@ -9,10 +9,11 @@ const metrics = [
 
 export const HeroSection = () => {
   return (
-    <SimpleVideoHero
+    <VideoHero
       videoSrc="/assets/premiumhomes-video.mp4"
       title="Institutional-Grade Infrastructure Investment for Long-Term Impact"
       subtitle="Institutional Investment & Impact Infrastructure"
+      className="min-h-[100vh]" // Taller for better video showcase
     >
       {/* Metrics Overlay */}
       <motion.div
@@ -50,6 +51,6 @@ export const HeroSection = () => {
           </p>
         </div>
       </motion.div>
-    </VideoHero>
+    </SimpleVideoHero>
   );
 };

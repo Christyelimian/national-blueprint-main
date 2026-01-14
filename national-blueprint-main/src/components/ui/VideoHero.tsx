@@ -22,7 +22,7 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
   const [canPlay, setCanPlay] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
+useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
@@ -43,8 +43,9 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
       setIsVideoPlaying(false);
     };
 
-    const handleError = (e: Event) => {
+    const handleError = () => {
       setHasError(true);
+      console.error('Video failed to load');
     };
 
     // Add event listeners
@@ -53,6 +54,32 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
     video.addEventListener('play', handlePlay);
     video.addEventListener('pause', handlePause);
     video.addEventListener('error', handleError);
+
+    // Set video properties for subtle background
+    video.muted = true;
+    video.playsInline = true;
+    video.loop = true;
+
+    // Try to load and play
+    try {
+      video.load();
+      
+      // Wait a bit then attempt to play
+      setTimeout(() => {
+        if (video.readyState >= 2) { // HAVE_CURRENT_DATA
+          const playPromise = video.play();
+          
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {
+              // Auto-play was blocked, user interaction needed
+            });
+          }
+        }
+      }, 1000);
+    } catch (error) {
+      setHasError(true);
+      console.error('Video setup failed:', error);
+    }
 
     return () => {
       video.removeEventListener('loadeddata', handleLoadedData);
@@ -82,26 +109,24 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
     <section className={`relative min-h-[90vh] flex items-center justify-center overflow-hidden ${className}`}>
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
-        {/* Fallback gradient background */}
+        {/* Base gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
         
-        {/* Video element */}
+        {/* Video element with reduced opacity */}
         <video
           ref={videoRef}
           className="w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
+          style={{ opacity: isVideoLoaded ? 0.3 : 0 }} // Much more subtle
           poster="/placeholder.svg"
+          preload="auto"
         >
           <source src={videoSrc} type="video/mp4" />
           {/* Fallback for browsers that don't support video */}
           Your browser does not support the video tag.
         </video>
         
-        {/* Video Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/40" />
+        {/* Darker gradient overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
         
 
       </div>
@@ -148,16 +173,16 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
       {/* Play/Pause Button */}
       <button
         onClick={handlePlayPause}
-        className="absolute bottom-8 right-8 z-20 w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 hover:scale-105 shadow-lg"
+        className="absolute bottom-8 right-8 z-20 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white/80 hover:bg-white/20 transition-all duration-300 hover:scale-105"
         aria-label={isVideoPlaying ? "Pause video" : "Play video"}
       >
         {isVideoPlaying ? (
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
             <rect x="6" y="4" width="4" height="16"/>
             <rect x="14" y="4" width="4" height="16"/>
           </svg>
         ) : (
-          <svg className="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
             <path d="M8 5v14l11-7z"/>
           </svg>
         )}
