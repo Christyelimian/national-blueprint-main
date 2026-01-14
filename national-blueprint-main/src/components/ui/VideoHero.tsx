@@ -106,27 +106,39 @@ useEffect(() => {
   };
 
   return (
-    <section className={`relative min-h-[90vh] flex items-center justify-center overflow-hidden ${className}`}>
+    <section className={`relative min-h-[100vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden ${className}`}>
+      {/* Mobile optimization hint for browsers */}
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
+      
+      {/* Mobile-optimized loading state */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 md:hidden" />
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         {/* Base gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
         
-        {/* Video element with reduced opacity */}
+        {/* Video element with mobile optimization */}
         <video
           ref={videoRef}
           className="w-full h-full object-cover"
-          style={{ opacity: isVideoLoaded ? 0.3 : 0 }} // Much more subtle
+          style={{ 
+            opacity: isVideoLoaded ? 0.3 : 0, // Reduced for mobile
+            objectPosition: 'center center' // Better mobile framing
+          }}
           poster="/placeholder.svg"
-          preload="auto"
+          preload="metadata" // Better for mobile
+          muted
+          loop
+          playsInline
         >
           <source src={videoSrc} type="video/mp4" />
+          <source src={videoSrc.replace('.mp4', '.webm')} type="video/webm" /> {/* WebM for better mobile support */}
           {/* Fallback for browsers that don't support video */}
           Your browser does not support the video tag.
         </video>
         
         {/* Darker gradient overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
         
 
       </div>

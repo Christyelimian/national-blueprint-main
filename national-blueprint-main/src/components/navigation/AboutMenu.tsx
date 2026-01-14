@@ -18,21 +18,21 @@ const MenuItem: React.FC<MenuItemProps> = ({ title, description, href, isHighlig
     }`}
   >
     <div className="flex items-start justify-between">
-      <div>
-        <h4 className={`font-medium text-sm leading-tight ${
+      <div className="flex-1 pr-2">
+        <h4 className={`font-medium text-sm md:text-base leading-tight ${
           isHighlighted ? 'text-foreground' : 'text-foreground/80 group-hover:text-foreground'
         }`}>
           {title}
         </h4>
         {description && (
-          <p className="text-xs text-muted-foreground mt-1 leading-relaxed max-w-[200px]">
+          <p className="text-xs md:text-sm text-muted-foreground mt-1 leading-relaxed max-w-[200px]">
             {description}
           </p>
         )}
       </div>
       <ArrowRight 
         size={14} 
-        className="mt-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" 
+        className="mt-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all flex-shrink-0" 
       />
     </div>
   </Link>
@@ -53,7 +53,7 @@ export const AboutMenu = () => {
     }
   }, []);
 
-  return (
+return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -61,11 +61,11 @@ export const AboutMenu = () => {
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       className="bg-background border border-border/30 backdrop-blur-md shadow-xl"
     >
-      <div className="container mx-auto px-12 py-12 max-w-7xl">
-        <div className="grid grid-cols-12 lg:gap-20 gap-8">
+      <div className="container mx-auto px-6 lg:px-12 py-12 max-w-7xl">
+        <div className="grid grid-cols-12 lg:grid-cols-4 gap-8">
           
           {/* Column 1: Identity */}
-          <div className="col-span-6 lg:col-span-2">
+          <div className="col-span-6 lg:col-span-1 order-1 lg:order-1">
             <h3 className="font-serif text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground mb-6">
               Identity
             </h3>
@@ -90,7 +90,7 @@ export const AboutMenu = () => {
           </div>
 
           {/* Column 2: Credibility */}
-          <div className="col-span-6 lg:col-span-2">
+          <div className="col-span-6 lg:col-span-1 order-2 lg:order-2 hidden lg:block">
             <h3 className="font-serif text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground mb-6">
               Credibility
             </h3>
@@ -114,7 +114,7 @@ export const AboutMenu = () => {
           </div>
 
           {/* Column 3: Craft & Quality */}
-          <div className="col-span-6 lg:col-span-2">
+          <div className="col-span-6 lg:col-span-1 order-3 lg:order-3 hidden lg:block">
             <h3 className="font-serif text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground mb-6">
               Craft & Quality
             </h3>
@@ -138,7 +138,7 @@ export const AboutMenu = () => {
           </div>
 
           {/* Column 4: Proof */}
-          <div className="col-span-6 lg:col-span-2">
+          <div className="col-span-6 lg:col-span-1 order-4 lg:order-4 hidden lg:block">
             <h3 className="font-serif text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground mb-6">
               Proof
             </h3>
@@ -161,35 +161,35 @@ export const AboutMenu = () => {
             </nav>
           </div>
 
-          {/* Visual Panel */}
-          <div className="col-span-12 lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-end-5">
+          {/* Visual Panel - Mobile Optimized */}
+          <div className="col-span-12 lg:col-span-4 lg:col-start-2 lg:col-end-5 order-5 lg:order-5">
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative h-[200px] lg:h-[400px] rounded-lg overflow-hidden"
+              className="relative h-[250px] lg:h-[400px] rounded-lg overflow-hidden"
             >
-{/* Video Background */}
-        <div className="absolute inset-0">
-          {/* Base gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-200" />
-          
-          {/* Video element with reduced opacity */}
-          <video
-            ref={videoRef}
-            className="w-full h-full object-cover"
-            style={{ opacity: isVideoLoaded ? 0.25 : 0 }} // Very subtle for menu
-            poster="/placeholder.svg"
-            preload="auto"
-            muted
-            loop
-            playsInline
-          >
-            <source src="/assets/premiumhomes-video.mp4" type="video/mp4" />
-            {/* Fallback for browsers that don't support video */}
-            Your browser does not support the video tag.
-          </video>
-        </div>
+              {/* Video Background */}
+              <div className="absolute inset-0">
+                {/* Base gradient background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-200" />
+                
+                {/* Video element with reduced opacity */}
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover"
+                  style={{ opacity: isVideoLoaded ? 0.25 : 0 }} // Very subtle for menu
+                  poster="/placeholder.svg"
+                  preload="auto"
+                  muted
+                  loop
+                  playsInline
+                >
+                  <source src="/assets/premiumhomes-video.mp4" type="video/mp4" />
+                  {/* Fallback for browsers that don't support video */}
+                  <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200" />
+                </video>
+              </div>
               
               {/* Overlay with Statement */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent flex items-end">
@@ -203,19 +203,18 @@ export const AboutMenu = () => {
               {/* Subtle texture overlay */}
               <div className="absolute inset-0 opacity-30">
                 <div className="w-full h-full" style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0V0zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14z'/%3E%3C/g%3E%3C/svg%3E")`,
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0V0zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 14z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
                 }} />
               </div>
 
               {/* Loading indicator */}
               {!isVideoLoaded && (
-                <div className="absolute inset-0 bg-slate-900/50 flex items-center justify-center">
+                <div className="absolute inset-0 bg-slate-900 z-5 flex items-center justify-center">
                   <div className="text-white text-sm">Loading...</div>
                 </div>
               )}
             </motion.div>
           </div>
-
         </div>
       </div>
     </motion.div>

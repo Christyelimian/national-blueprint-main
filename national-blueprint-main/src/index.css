@@ -4,6 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile Optimizations Import */
+@import './styles/mobile.css';
+
 /* Premium Homes Design System
    Two Themes: Institutional (Navy/Gold) & Emerald (Green/Lime)
    All colors in HSL format

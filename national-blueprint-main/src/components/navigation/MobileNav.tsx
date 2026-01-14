@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronDown, ArrowRight } from 'lucide-react';
+import { X, ChevronDown, ArrowRight, Menu } from 'lucide-react';
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -69,51 +68,53 @@ export const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
     setExpandedItem(expandedItem === label ? null : label);
   };
 
-  return (
+return (
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
+          {/* Backdrop - Enhanced for mobile */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-50 lg:hidden"
             onClick={onClose}
           />
-
-          {/* Drawer */}
+          
+          {/* Mobile Drawer - Improved */}
           <motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-primary z-50 overflow-y-auto"
+            className="fixed top-0 left-0 right-0 bottom-0 w-full bg-primary z-50 h-screen lg:hidden overflow-y-auto"
           >
-            {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-primary-foreground/10">
+            {/* Header with better mobile layout */}
+            <div className="flex items-center justify-between p-4 border-b border-primary-foreground/10">
               <span className="font-serif text-lg text-primary-foreground">Menu</span>
               <button
                 onClick={onClose}
-                className="p-2 text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                className="p-3 rounded-full hover:bg-primary-foreground/10 transition-colors"
                 aria-label="Close menu"
               >
-                <X size={24} />
+                <X size={20} />
               </button>
             </div>
-
-            {/* Navigation */}
-            <nav className="py-6">
+            
+            {/* Navigation with mobile improvements */}
+            <nav className="py-4 px-4">
               {navItems.map((item) => (
                 <div key={item.label} className="border-b border-primary-foreground/10">
                   {item.children.length > 0 ? (
                     <>
+                      {/* Expandable item - mobile optimized */}
                       <button
                         onClick={() => toggleExpand(item.label)}
-                        className="flex items-center justify-between w-full px-6 py-4 text-left text-primary-foreground hover:text-accent transition-colors"
+                        className="flex items-center justify-between w-full px-4 py-6 text-left text-primary-foreground hover:text-accent transition-colors min-h-[60px]"
+                        aria-expanded={expandedItem === item.label}
                       >
-                        <span className="font-sans text-base">{item.label}</span>
+                        <span className="font-sans text-lg">{item.label}</span>
                         <ChevronDown
                           size={20}
                           className={`transition-transform duration-200 ${
@@ -122,21 +123,22 @@ export const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                         />
                       </button>
                       
+                      {/* Sub-items with mobile animations */}
                       <AnimatePresence>
                         {expandedItem === item.label && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="overflow-hidden bg-primary-foreground/5"
+                            transition={{ duration: 0.2, ease: 'easeOut' }}
+                            className="bg-primary-foreground overflow-hidden"
                           >
                             {item.children.map((child) => (
                               <Link
                                 key={child.href}
                                 to={child.href}
                                 onClick={onClose}
-                                className="block px-10 py-3 text-sm text-primary-foreground/70 hover:text-accent transition-colors"
+                                className="block px-6 py-4 text-sm text-primary-foreground hover:text-accent transition-colors"
                               >
                                 {child.label}
                               </Link>
@@ -146,10 +148,11 @@ export const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                       </AnimatePresence>
                     </>
                   ) : (
+                    {/* Simple link for mobile */}
                     <Link
                       to={item.href}
                       onClick={onClose}
-                      className="block px-6 py-4 text-base text-primary-foreground hover:text-accent transition-colors"
+                      className="block px-4 py-4 text-lg text-primary-foreground hover:text-accent transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -157,13 +160,13 @@ export const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                 </div>
               ))}
             </nav>
-
-            {/* Engage Button */}
-            <div className="p-6">
+            
+            {/* Enhanced Engage Button */}
+            <div className="p-4">
               <Link
                 to="/engage"
                 onClick={onClose}
-                className="flex items-center justify-center gap-3 w-full py-4 bg-accent text-accent-foreground font-sans text-sm tracking-wide hover:bg-accent/90 transition-colors"
+                className="flex items-center justify-center gap-3 w-full px-4 py-4 bg-accent text-accent-foreground font-sans text-sm tracking-wide hover:bg-accent/90 transition-colors"
               >
                 Engage With Us
                 <ArrowRight size={16} />
