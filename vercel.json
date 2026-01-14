@@ -5,6 +5,8 @@
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "framework": "vite",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
   "rewrites": [
     {
       "source": "/ng/:path*",
