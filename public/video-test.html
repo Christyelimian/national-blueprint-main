@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Test</title>
+    <style>
+        body { margin: 0; background: #000; }
+        video { width: 100%; height: 100vh; object-fit: cover; }
+        .debug { position: fixed; top: 10px; left: 10px; background: rgba(255,255,255,0.9); padding: 10px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div class="debug" id="debug">Testing video loading...</div>
+    <video id="video" autoplay muted loop playsinline>
+        <source src="/assets/premiumhomes-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        const video = document.getElementById('video');
+        const debug = document.getElementById('debug');
+        
+        video.addEventListener('loadstart', () => debug.innerHTML = 'Loading started...');
+        video.addEventListener('loadeddata', () => debug.innerHTML = 'Video loaded data');
+        video.addEventListener('canplay', () => debug.innerHTML = 'Video can play');
+        video.addEventListener('play', () => debug.innerHTML = 'Video is playing');
+        video.addEventListener('error', (e) => debug.innerHTML = 'Error: ' + e.message);
+        
+        video.load();
+        video.play().catch(err => debug.innerHTML = 'Autoplay blocked: ' + err.message);
+    </script>
+</body>
+</html>
