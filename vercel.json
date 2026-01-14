@@ -1,7 +1,53 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "installCommand": "npm install",
+  "version": 2,
+  "name": "premium-homes", 
+  "buildCommand": "cd national-blueprint-main && npm run build",
+  "outputDirectory": "national-blueprint-main/dist",
+  "installCommand": "cd national-blueprint-main && npm install",
   "framework": "vite",
-  "rootDirectory": "national-blueprint-main"
+  "rootDirectory": "national-blueprint-main",
+  "rewrites": [
+    {
+      "source": "/ng/:path*",
+      "destination": "/national-blueprint-main/index.html"
+    },
+    {
+      "source": "/sl/:path*",
+      "destination": "/national-blueprint-main/index.html"
+    },
+    {
+      "source": "/bw/:path*",
+      "destination": "/national-blueprint-main/index.html"
+    },
+    {
+      "source": "/bf/:path*",
+      "destination": "/national-blueprint-main/index.html"
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/national-blueprint-main/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/national-blueprint-main/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/national-blueprint-main/(.*\\.(js|css|png|jpg|jpeg|gif|ico|svg))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
