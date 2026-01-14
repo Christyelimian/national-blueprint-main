@@ -169,23 +169,30 @@ export const AboutMenu = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative h-[200px] lg:h-[400px] rounded-lg overflow-hidden"
             >
-              {/* Video Background */}
-              <video
-                ref={videoRef}
-                className="w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                poster="/placeholder.svg"
-              >
-                <source src="/assets/premiumhomes-video.mp4" type="video/mp4" />
-                {/* Fallback */}
-                <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200" />
-              </video>
+{/* Video Background */}
+        <div className="absolute inset-0">
+          {/* Base gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-200" />
+          
+          {/* Video element with reduced opacity */}
+          <video
+            ref={videoRef}
+            className="w-full h-full object-cover"
+            style={{ opacity: isVideoLoaded ? 0.25 : 0 }} // Very subtle for menu
+            poster="/placeholder.svg"
+            preload="auto"
+            muted
+            loop
+            playsInline
+          >
+            <source src="/assets/premiumhomes-video.mp4" type="video/mp4" />
+            {/* Fallback for browsers that don't support video */}
+            Your browser does not support the video tag.
+          </video>
+        </div>
               
               {/* Overlay with Statement */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/30 to-transparent flex items-end">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent flex items-end">
                 <div className="p-6 w-full">
                   <blockquote className="font-serif text-lg md:text-xl font-light text-white leading-relaxed">
                     We don't build houses. We craft enduring places to live.
