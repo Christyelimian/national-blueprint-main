@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { VideoHero } from '@/components/ui/VideoHero';
+import { SimpleVideoHero } from '@/components/ui/SimpleVideoHero';
 
 const metrics = [
   { value: '$10B+', label: 'Institutional AUM Target' },
@@ -8,14 +8,14 @@ const metrics = [
 ];
 
 export const HeroSection = () => {
-return (
-    <VideoHero
+  return (
+    <SimpleVideoHero
       videoSrc="/assets/premiumhomes-video.mp4"
-      title="Institutional-Grade Infrastructure Investment for Long-Term Impact"
-      subtitle="Institutional Investment & Impact Infrastructure"
+      title=""
+      subtitle=""
       className="min-h-[100vh] md:min-h-[90vh]" // Taller for better video showcase
     >
-      {/* Content Container - Fixed positioning to prevent overlap */}
+      {/* Content Container - Mobile optimized to prevent overlap */}
       <div className="relative z-20 container mx-auto px-4 md:px-6 lg:px-12">
         <div className="flex flex-col items-center justify-center min-h-[100vh] py-16 md:py-24">
           <motion.div
@@ -81,6 +81,6 @@ return (
           </motion.div>
         </div>
       </div>
-    </VideoHero>
+    </SimpleVideoHero>
   );
 };

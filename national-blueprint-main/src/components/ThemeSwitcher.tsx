@@ -18,13 +18,13 @@ export const ThemeSwitcher = () => {
       >
         {theme === 'institutional' ? (
           <>
-            <div className="w-3 h-3 rounded-full bg-accent" />
+            <div className="w-3 h-3 rounded-full bg-[#1e3a5f]" />
             <span className="text-xs font-sans uppercase tracking-wider text-foreground/70">Navy</span>
           </>
         ) : (
           <>
-            <div className="w-3 h-3 rounded-full bg-accent" />
-            <span className="text-xs font-sans uppercase tracking-wider text-foreground/70">Emerald</span>
+            <div className="w-3 h-3 rounded-full bg-[#75b743]" />
+            <span className="text-xs font-sans uppercase tracking-wider text-foreground/70">Lemon</span>
           </>
         )}
       </motion.div>

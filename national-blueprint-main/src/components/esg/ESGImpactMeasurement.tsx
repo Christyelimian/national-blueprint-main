@@ -141,45 +141,46 @@ export const ESGImpactMeasurement = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
               {esgMetrics.map((metric, index) => {
                 const Icon = metric.icon;
-                return (
+                 return (
                   <motion.div
                     key={metric.category}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white border border-slate-200 rounded-lg p-4 md:p-6 hover:shadow-lg transition-shadow"
                   >
-                    <CardHeader className="pb-2 md:pb-4">
-                      <div className="flex items-center justify-between">
-                        <div className={`p-2 md:p-3 rounded-lg bg-slate-100 ${metric.color} bg-opacity-10`}>
-                          <Icon size={20} className={metric.color.replace('bg-', 'text-')} />
+                    <Card className="hover:shadow-lg transition-shadow">
+                      <CardHeader className="pb-2 md:pb-4">
+                        <div className="flex items-center justify-between">
+                          <div className={`p-2 md:p-3 rounded-lg bg-slate-100 ${metric.color} bg-opacity-10`}>
+                            <Icon size={20} className={metric.color.replace('bg-', 'text-')} />
+                          </div>
+                          <Badge variant="outline" className="text-xs md:text-sm">
+                            {metric.score}/{metric.target}
+                          </Badge>
                         </div>
-                        <Badge variant="outline" className="text-xs md:text-sm">
-                          {metric.score}/{metric.target}
-                        </Badge>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <CardTitle className="font-serif text-lg md:text-xl font-medium text-slate-900 mb-2">
-                        {metric.category}
-                      </CardTitle>
-                      <CardDescription className="mb-3 md:mb-4 text-xs md:text-sm">
-                        {metric.description}
-                      </CardDescription>
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-xs md:text-sm">
-                          <span>Current Score</span>
-                          <span className="font-medium">{metric.score}%</span>
+                      </CardHeader>
+                      <CardContent>
+                        <CardTitle className="font-serif text-lg md:text-xl font-medium text-slate-900 mb-2">
+                          {metric.category}
+                        </CardTitle>
+                        <CardDescription className="mb-3 md:mb-4 text-xs md:text-sm">
+                          {metric.description}
+                        </CardDescription>
+                        <div className="space-y-2">
+                          <div className="flex justify-between text-xs md:text-sm">
+                            <span>Current Score</span>
+                            <span className="font-medium">{metric.score}%</span>
+                          </div>
+                          <Progress value={metric.score} className="h-2" />
+                          <div className="flex justify-between text-xs md:text-sm text-slate-500">
+                            <span>Target</span>
+                            <span>{metric.target}%</span>
+                          </div>
                         </div>
-                        <Progress value={metric.score} className="h-2" />
-                        <div className="flex justify-between text-xs md:text-sm text-slate-500">
-                          <span>Target</span>
-                          <span>{metric.target}%</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
                 );
               })}
             </div>

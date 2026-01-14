@@ -31,7 +31,7 @@ export const SimpleVideoHero: React.FC<SimpleVideoHeroProps> = ({
         </video>
         
         {/* Video Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
       </div>
 
       {/* Content */}

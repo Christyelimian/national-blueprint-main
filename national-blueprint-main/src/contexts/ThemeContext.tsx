@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-export type ThemeVariant = 'institutional' | 'emerald';
+export type ThemeVariant = 'institutional' | 'lemon';
 
 interface ThemeContextType {
   theme: ThemeVariant;
@@ -13,9 +13,9 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<ThemeVariant>(() => {
     if (typeof window !== 'undefined') {
-      return (localStorage.getItem('ph-theme') as ThemeVariant) || 'institutional';
+      return (localStorage.getItem('ph-theme') as ThemeVariant) || 'lemon';
     }
-    return 'institutional';
+    return 'lemon';
   });
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'institutional' ? 'emerald' : 'institutional');
+    setTheme(prev => prev === 'institutional' ? 'lemon' : 'institutional');
   };
 
   return (

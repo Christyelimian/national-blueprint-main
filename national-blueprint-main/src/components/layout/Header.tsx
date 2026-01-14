@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, Shield } from 'lucide-react';
 import { GlobalSettingsDropdown } from '@/components/navigation/GlobalSettingsDropdown';
+import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 import { useCountry } from '@/contexts/CountryContext';
 import { MegaMenuContainer } from '@/components/navigation/MegaMenuContainer';
 import { AboutMenu } from '@/components/navigation/AboutMenu';
@@ -92,10 +93,12 @@ export const Header = () => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 relative z-50">
+              <img 
+                src="/assets/Premium homes logo.png" 
+                alt="Premium Homes" 
+                className="h-12 w-auto"
+              />
               <div className="flex flex-col">
-                <span className="font-serif text-xl font-semibold text-foreground tracking-tight">
-                  Premium Homes
-                </span>
                 <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                   Global Investment Services
                 </span>
@@ -148,6 +151,7 @@ export const Header = () => {
                     <Shield size={16} />
                     Investor Portal
                   </Link>
+                  <ThemeSwitcher />
                   <GlobalSettingsDropdown />
                   <Link
                     to={buildCountryHref("/engage")}
