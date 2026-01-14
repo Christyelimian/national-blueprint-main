@@ -5,7 +5,7 @@
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "framework": "vite",
-  "rootDirectory": "national-blueprint-main",
+
   "rewrites": [
     {
       "source": "/ng/:path*",
