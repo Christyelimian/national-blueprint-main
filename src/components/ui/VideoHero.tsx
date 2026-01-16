@@ -125,7 +125,7 @@ useEffect(() => {
             opacity: isVideoLoaded ? 0.3 : 0, // Reduced for mobile
             objectPosition: 'center center' // Better mobile framing
           }}
-          poster="/placeholder.svg"
+          poster="/assets/placeholder.svg"
           preload="metadata" // Better for mobile
           muted
           loop

@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { CountryProvider } from "@/contexts/CountryContext";
+import { CountryRoute } from "@/components/routing/CountryRoute";
 import Index from "./pages/Index";
 import HowWeDeliver from "./pages/HowWeDeliver";
 import WhatWeDo from "./pages/WhatWeDo";
@@ -30,20 +31,76 @@ const App = () => (
               <Route path="/" element={<Index />} />
               
               {/* Country-prefixed routes */}
-              <Route path="/:country" element={<Index />} />
-              <Route path="/:country/about" element={<WhoWeAre />} />
-              <Route path="/:country/about/who-we-are" element={<WhoWeAre />} />
-              <Route path="/:country/about/philosophy" element={<Philosophy />} />
-              <Route path="/:country/about/values" element={<Values />} />
-              <Route path="/:country/about/leadership" element={<Leadership />} />
-              <Route path="/:country/what-we-do" element={<WhatWeDo />} />
-              <Route path="/:country/programs" element={<Index />} />
-              <Route path="/:country/how-we-deliver" element={<HowWeDeliver />} />
-              <Route path="/:country/investor-portal" element={<InvestorPortal />} />
-              <Route path="/:country/engage" element={<Index />} />
-              <Route path="/:country/impact" element={<Index />} />
-              <Route path="/:country/insights" element={<Index />} />
-              <Route path="/:country/projects/:id" element={<InstitutionalProjectDetail />} />
+              <Route path="/:country" element={
+                <CountryRoute>
+                  <Index />
+                </CountryRoute>
+              } />
+              <Route path="/:country/about" element={
+                <CountryRoute>
+                  <WhoWeAre />
+                </CountryRoute>
+              } />
+              <Route path="/:country/about/who-we-are" element={
+                <CountryRoute>
+                  <WhoWeAre />
+                </CountryRoute>
+              } />
+              <Route path="/:country/about/philosophy" element={
+                <CountryRoute>
+                  <Philosophy />
+                </CountryRoute>
+              } />
+              <Route path="/:country/about/values" element={
+                <CountryRoute>
+                  <Values />
+                </CountryRoute>
+              } />
+              <Route path="/:country/about/leadership" element={
+                <CountryRoute>
+                  <Leadership />
+                </CountryRoute>
+              } />
+              <Route path="/:country/what-we-do" element={
+                <CountryRoute>
+                  <WhatWeDo />
+                </CountryRoute>
+              } />
+              <Route path="/:country/programs" element={
+                <CountryRoute>
+                  <Index />
+                </CountryRoute>
+              } />
+              <Route path="/:country/how-we-deliver" element={
+                <CountryRoute>
+                  <HowWeDeliver />
+                </CountryRoute>
+              } />
+              <Route path="/:country/investor-portal" element={
+                <CountryRoute>
+                  <InvestorPortal />
+                </CountryRoute>
+              } />
+              <Route path="/:country/engage" element={
+                <CountryRoute>
+                  <Index />
+                </CountryRoute>
+              } />
+              <Route path="/:country/impact" element={
+                <CountryRoute>
+                  <Index />
+                </CountryRoute>
+              } />
+              <Route path="/:country/insights" element={
+                <CountryRoute>
+                  <Index />
+                </CountryRoute>
+              } />
+              <Route path="/:country/projects/:id" element={
+                <CountryRoute>
+                  <InstitutionalProjectDetail />
+                </CountryRoute>
+              } />
               
               {/* Legacy routes for backward compatibility */}
               <Route path="/how-we-deliver" element={<HowWeDeliver />} />

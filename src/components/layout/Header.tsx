@@ -90,7 +90,7 @@ export const Header = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 relative z-50">
               <img 
-                src="/premium-homes-logo.png" 
+                src="/assets/premium-homes-logo.png" 
                 alt="Premium Homes" 
                 className="h-12 w-auto"
               />
