@@ -10,7 +10,7 @@ interface VideoHeroProps {
 }
 
 export const VideoHero: React.FC<VideoHeroProps> = ({ 
-  videoSrc = '/assets/premiumhomes-video.mp4', 
+  videoSrc = '/premiumhomes-video.mp4', 
   title, 
   subtitle,
   className = '',
@@ -125,7 +125,7 @@ useEffect(() => {
             opacity: isVideoLoaded ? 0.3 : 0, // Reduced for mobile
             objectPosition: 'center center' // Better mobile framing
           }}
-          poster="/assets/placeholder.svg"
+          poster="/placeholder.svg"
           preload="metadata" // Better for mobile
           muted
           loop
