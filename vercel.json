@@ -23,7 +23,11 @@
       "destination": "/index.html"
     },
     {
-      "source": "/((?!api/|assets/).*)",
+      "source": "/(.*\\.(png|jpg|jpeg|gif|svg|mp4|webm|css|js|ico|woff|woff2|ttf|eot)$)",
+      "destination": "/$1"
+    },
+    {
+      "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
   ],
