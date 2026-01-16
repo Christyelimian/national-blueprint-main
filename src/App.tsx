@@ -27,7 +27,7 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Navigate to="/ng" />} />
+              <Route path="/" element={<Index />} />
               
               {/* Country-prefixed routes */}
               <Route path="/:country" element={<Index />} />

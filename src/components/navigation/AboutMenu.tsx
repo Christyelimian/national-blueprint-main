@@ -64,98 +64,98 @@ return (
       <div className="container mx-auto px-6 lg:px-12 py-12 max-w-7xl">
         <div className="grid grid-cols-12 lg:grid-cols-4 gap-8">
           
-          {/* Column 1: Identity */}
+          {/* Column 1: Institutional Mandate */}
           <div className="col-span-6 lg:col-span-1 order-1 lg:order-1">
             <h3 className="font-serif text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground mb-6">
-              Identity
+              Institutional Mandate
             </h3>
             <nav className="space-y-1">
               <MenuItem
                 title="Who We Are"
-                description="Position, not explain"
+                description="Institutional platform overview"
                 href="/about/who-we-are"
                 isHighlighted={true}
               />
               <MenuItem
                 title="Our Philosophy"
-                description="Longevity over trends"
+                description="From units to entire cities"
                 href="/about/philosophy"
               />
               <MenuItem
                 title="What We Stand For"
-                description="Values without buzzwords"
+                description="Institutional values"
                 href="/about/values"
               />
             </nav>
           </div>
 
-          {/* Column 2: Credibility */}
+          {/* Column 2: Governance & Leadership */}
           <div className="col-span-6 lg:col-span-1 order-2 lg:order-2 hidden lg:block">
             <h3 className="font-serif text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground mb-6">
-              Credibility
+              Governance & Leadership
             </h3>
             <nav className="space-y-1">
               <MenuItem
                 title="Our Legacy"
-                description="Quiet proof of time"
+                description="Proven execution capability"
                 href="/about/legacy"
               />
               <MenuItem
                 title="Leadership"
-                description="Reassurance, not celebrity"
+                description="Institutional experience"
                 href="/about/leadership"
               />
               <MenuItem
                 title="Partners & Affiliations"
-                description="Borrowed trust"
+                description="Strategic relationships"
                 href="/about/partners"
               />
             </nav>
           </div>
 
-          {/* Column 3: Craft & Quality */}
+          {/* Column 3: Execution Standards */}
           <div className="col-span-6 lg:col-span-1 order-3 lg:order-3 hidden lg:block">
             <h3 className="font-serif text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground mb-6">
-              Craft & Quality
+              Execution Standards
             </h3>
             <nav className="space-y-1">
               <MenuItem
-                title="Design Approach"
-                description="Differentiate taste"
-                href="/about/design"
+                title="Development Approach"
+                description="Strategic to design excellence"
+                href="/about/development"
               />
               <MenuItem
-                title="Construction Standards"
-                description="Calm buyer's fear"
+                title="Quality Framework"
+                description="Institutional standards"
                 href="/about/standards"
               />
               <MenuItem
-                title="Sustainability & Responsibility"
-                description="Modern legitimacy"
+                title="Sustainability Standards"
+                description="Environmental responsibility"
                 href="/about/sustainability"
               />
             </nav>
           </div>
 
-          {/* Column 4: Proof */}
+          {/* Column 4: Delivery Validation */}
           <div className="col-span-6 lg:col-span-1 order-4 lg:order-4 hidden lg:block">
             <h3 className="font-serif text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground mb-6">
-              Proof
+              Delivery Validation
             </h3>
             <nav className="space-y-1">
               <MenuItem
-                title="Awards & Recognition"
-                description="Third-party validation"
-                href="/about/awards"
+                title="Track Record"
+                description="Demonstrated execution"
+                href="/about/track-record"
               />
               <MenuItem
-                title="Press & Features"
-                description="Social proof without self-promotion"
-                href="/about/press"
+                title="Institutional Recognition"
+                description="Third-party validation"
+                href="/about/recognition"
               />
               <MenuItem
                 title="Impact & Communities"
-                description="Human depth"
+                description="Economic transformation"
                 href="/about/impact"
               />
             </nav>
@@ -195,7 +195,7 @@ return (
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent flex items-end">
                 <div className="p-6 w-full">
                   <blockquote className="font-serif text-lg md:text-xl font-light text-white leading-relaxed">
-                    We don't build houses. We craft enduring places to live.
+                    From individual homes to entire cities,<br/>enduring quality at every scale.
                   </blockquote>
                 </div>
               </div>

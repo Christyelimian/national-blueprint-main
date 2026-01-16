@@ -1,5 +1,6 @@
 import { useTheme } from '@/contexts/ThemeContext';
 import { motion } from 'framer-motion';
+import { Sun, Moon } from 'lucide-react';
 
 export const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
@@ -7,25 +8,35 @@ export const ThemeSwitcher = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="relative flex items-center gap-2 px-3 py-2 rounded-sm border border-border/30 bg-surface/50 backdrop-blur-sm hover:bg-surface transition-colors duration-300"
+      className="relative p-2 rounded-sm border border-border/30 bg-surface/50 backdrop-blur-sm hover:bg-surface transition-colors duration-300"
       aria-label="Toggle theme"
     >
       <motion.div
-        className="flex items-center gap-2"
+        className="relative w-5 h-5"
         initial={false}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
       >
-        {theme === 'institutional' ? (
-          <>
-            <div className="w-3 h-3 rounded-full bg-[#1e3a5f]" />
-            <span className="text-xs font-sans uppercase tracking-wider text-foreground/70">Navy</span>
-          </>
+        {theme === 'light' || theme === 'auto' ? (
+          <motion.div
+            key="sun"
+            initial={{ rotate: -90, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={{ rotate: 90, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Sun size={20} className="text-foreground/70" />
+          </motion.div>
         ) : (
-          <>
-            <div className="w-3 h-3 rounded-full bg-[#75b743]" />
-            <span className="text-xs font-sans uppercase tracking-wider text-foreground/70">Lemon</span>
-          </>
+          <motion.div
+            key="moon"
+            initial={{ rotate: -90, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={{ rotate: 90, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Moon size={20} className="text-foreground/70" />
+          </motion.div>
         )}
       </motion.div>
     </button>

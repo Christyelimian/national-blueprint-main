@@ -56,22 +56,26 @@ const Philosophy = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <span className="inline-block px-4 py-2 text-xs uppercase tracking-[0.2em] text-slate-500 border border-slate-200 rounded-sm mb-8">
-              Identity
+             <span className="inline-block px-4 py-2 text-xs uppercase tracking-[0.2em] text-slate-500 border border-slate-200 rounded-sm mb-8">
+              Institutional Mandate
             </span>
             
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 leading-[1.1] tracking-tight mb-8">
               Our Philosophy
             </h1>
             
-            <p className="font-serif text-xl md:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
-              Luxury is not about excess—it's about the relentless pursuit of quality in every detail.
+            <blockquote className="font-serif text-xl md:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-8">
+              We don't build houses. We craft enduring places to live.
+            </blockquote>
+            
+            <p className="font-serif text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              This philosophy scales from individual units to entire cities. Whether delivering 850 units in Abuja or structuring a $10B mega city in Sierra Leone, the same commitment to quality, sustainability, and community integration guides every decision.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Core Principles */}
+      {/* Strategic Development Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
@@ -82,10 +86,10 @@ const Philosophy = () => {
               className="text-center mb-16"
             >
               <h2 className="font-serif text-3xl md:text-4xl font-light text-slate-900 mb-4">
-                Three Guiding Principles
+                From Strategy to Execution
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-                These principles differentiate us from typical developers and guide every decision we make.
+                We believe infrastructure is not merely construction—it is nation-building. Each project must serve not just its immediate residents, but contribute to economic transformation, social stability, and long-term national development.
               </p>
             </motion.div>
 
@@ -128,7 +132,7 @@ const Philosophy = () => {
         </div>
       </section>
 
-      {/* Design Approach */}
+      {/* Development Approach */}
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
           <motion.div
@@ -139,10 +143,10 @@ const Philosophy = () => {
           >
             <div className="text-center mb-16">
               <h2 className="font-serif text-3xl md:text-4xl font-light text-slate-900 mb-4">
-                Design Approach
+                Development Approach
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-                We approach design holistically, considering how each discipline contributes to the whole.
+                We merge strategic development with design excellence and quality delivery to create institutional-grade projects at scale.
               </p>
             </div>
 
@@ -176,7 +180,7 @@ const Philosophy = () => {
         </div>
       </section>
 
-      {/* Statement Section */}
+      {/* Scale Statement Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div
@@ -187,9 +191,9 @@ const Philosophy = () => {
           >
             <div className="bg-slate-900 text-white p-16 rounded-lg">
               <blockquote className="font-serif text-2xl md:text-3xl font-light leading-relaxed mb-8">
-                We don't follow markets. We create them through unwavering commitment to quality and authenticity.
+                We believe infrastructure is not merely construction—it is nation-building. Each project must serve not just its immediate residents, but contribute to economic transformation, social stability, and long-term national development.
               </blockquote>
-              <cite className="text-sm text-slate-300">Our Design Philosophy</cite>
+              <cite className="text-sm text-slate-300">From Units to Cities: Institutional Philosophy</cite>
             </div>
           </motion.div>
         </div>

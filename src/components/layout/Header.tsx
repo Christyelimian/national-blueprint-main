@@ -1,31 +1,29 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, Menu, Shield } from 'lucide-react';
+import { ChevronDown, Menu, Shield, Settings } from 'lucide-react';
 import { GlobalSettingsDropdown } from '@/components/navigation/GlobalSettingsDropdown';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 import { useCountry } from '@/contexts/CountryContext';
 import { MegaMenuContainer } from '@/components/navigation/MegaMenuContainer';
 import { AboutMenu } from '@/components/navigation/AboutMenu';
-import { WhatWeDoMenu } from '@/components/navigation/WhatWeDoMenu';
-
 import { ProgramsMenu } from '@/components/navigation/ProgramsMenu';
-import { HowWeDeliverMenu } from '@/components/navigation/HowWeDeliverMenu';
+import { DeliveryMenu } from '@/components/navigation/DeliveryMenu';
 import { MobileNav } from '@/components/navigation/MobileNav';
+import { CanvasMenu } from '@/components/navigation/CanvasMenu';
 
-type MenuKey = 'about' | 'whatWeDo' | 'programs' | 'howWeDeliver' | null;
+type MenuKey = 'about' | 'programs' | 'delivery' | null;
 
 const navItems: { key: MenuKey; label: string; href: string }[] = [
   { key: 'about', label: 'About', href: '/about' },
-  { key: 'whatWeDo', label: 'Services', href: '/what-we-do' },
   { key: 'programs', label: 'Programs', href: '/programs' },
-  { key: 'howWeDeliver', label: 'Process', href: '/how-we-deliver' },
+  { key: 'delivery', label: 'Delivery', href: '/delivery' },
   { key: null, label: 'Impact', href: '/impact' },
-  { key: null, label: 'Insights', href: '/insights' },
 ];
 
 export const Header = () => {
   const [activeMenu, setActiveMenu] = useState<MenuKey>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [canvasMenuOpen, setCanvasMenuOpen] = useState(false);
   const location = useLocation();
   const headerRef = useRef<HTMLElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -71,12 +69,10 @@ export const Header = () => {
     switch (activeMenu) {
       case 'about':
         return <AboutMenu />;
-      case 'whatWeDo':
-        return <WhatWeDoMenu />;
       case 'programs':
         return <ProgramsMenu />;
-      case 'howWeDeliver':
-        return <HowWeDeliverMenu />;
+      case 'delivery':
+        return <DeliveryMenu />;
       default:
         return null;
     }
@@ -94,7 +90,7 @@ export const Header = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 relative z-50">
               <img 
-                src="/national-blueprint-main/assets/Premium homes logo.png" 
+                src="/premium-homes-logo.png" 
                 alt="Premium Homes" 
                 className="h-12 w-auto"
               />
@@ -115,17 +111,15 @@ export const Header = () => {
                 >
                   <Link
                     to={buildCountryHref(item.href)}
-                    className={`flex items-center gap-1.5 px-4 py-2 text-sm font-sans tracking-wide transition-colors duration-200 ${
-                      location.pathname.endsWith(item.href) || 
-                      (item.href.startsWith('/about/') && location.pathname.includes(item.href.replace('/about', ''))) ||
-                      (item.href.startsWith('/what-we-do') && location.pathname.includes('/what-we-do')) ||
-                      (item.href.startsWith('/how-we-deliver') && location.pathname.includes('/how-we-deliver')) ||
-                      (item.href.startsWith('/programs') && location.pathname.includes('/programs')) ||
-                      (item.href.startsWith('/impact') && location.pathname.includes('/impact')) ||
-                      (item.href.startsWith('/insights') && location.pathname.includes('/insights'))
-                        ? 'text-accent'
-                        : 'text-foreground/70 hover:text-foreground'
-                    } ${activeMenu === item.key ? 'text-foreground' : ''}`}
+                     className={`flex items-center gap-1.5 px-4 py-2 text-sm font-sans tracking-wide transition-colors duration-200 ${
+                       location.pathname.endsWith(item.href) || 
+                       (item.href.startsWith('/about/') && location.pathname.includes(item.href.replace('/about', ''))) ||
+                       (item.href.startsWith('/programs') && location.pathname.includes('/programs')) ||
+                       (item.href.startsWith('/delivery') && location.pathname.includes('/delivery')) ||
+                       (item.href.startsWith('/impact') && location.pathname.includes('/impact'))
+                         ? 'text-accent'
+                         : 'text-foreground/70 hover:text-foreground'
+                     } ${activeMenu === item.key ? 'text-foreground' : ''}`}
                   >
                     {item.label}
                     {item.key && (
@@ -144,21 +138,20 @@ export const Header = () => {
 {/* Right Section */}
               <div className="flex items-center gap-4">
                 <div className="hidden lg:flex items-center gap-4">
-                  <Link
-                    to={buildCountryHref("/investor-portal")}
-                    className="flex items-center gap-2 px-4 py-2.5 text-sm font-sans tracking-wide border border-primary/30 text-primary hover:bg-primary/10 transition-colors"
-                  >
-                    <Shield size={16} />
-                    Investor Portal
-                  </Link>
-                  <ThemeSwitcher />
+                  {/* Country Selector */}
                   <GlobalSettingsDropdown />
-                  <Link
-                    to={buildCountryHref("/engage")}
-                    className="px-5 py-2.5 bg-primary text-primary-foreground text-sm font-sans tracking-wide hover:bg-primary/90 transition-colors"
+                  
+                  {/* Theme Switcher */}
+                  <ThemeSwitcher />
+                  
+                  {/* Canvas Menu Button */}
+                  <button
+                    className="p-2 text-foreground hover:text-accent transition-colors"
+                    onClick={() => setCanvasMenuOpen(true)}
+                    aria-label="Open menu"
                   >
-                    Engage
-                  </Link>
+                    <Menu size={20} />
+                  </button>
                 </div>
 
               {/* Mobile Menu Button */}
@@ -183,6 +176,9 @@ export const Header = () => {
 
       {/* Mobile Navigation */}
       <MobileNav isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
+      
+      {/* Canvas Menu */}
+      <CanvasMenu isOpen={canvasMenuOpen} onClose={() => setCanvasMenuOpen(false)} />
     </>
   );
 };

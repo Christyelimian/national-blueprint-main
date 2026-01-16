@@ -1,0 +1,27 @@
+<!-- In your index.html or _document.tsx -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Fix favicon paths - use absolute paths from public folder -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  <title>Premium Homes</title>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>
+
+<!-- In your React component for logo -->
+<!-- WRONG -->
+<img src="Premium%20homes%20logo.png" alt="Premium Homes" />
+<img src="assets/favicon.ico" alt="Logo" />
+
+<!-- CORRECT - Use absolute paths -->
+<img src="/Premium-homes-logo.png" alt="Premium Homes" />
+<img src="/logo.png" alt="Premium Homes" />
