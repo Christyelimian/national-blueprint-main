@@ -1,0 +1,4 @@
+/* Program Components CSS - Shared styles for all program pages */
+
+/* Import existing component styles */
+@import '../../components/programs/ProgramComponents.css';

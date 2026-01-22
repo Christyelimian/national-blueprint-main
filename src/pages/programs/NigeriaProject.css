@@ -1,0 +1,950 @@
+/* Nigerian Housing Project Template - Single Page Design */
+
+.nigeria-project {
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+/* Hero Section */
+.project-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
+}
+
+.hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.project-flag {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  animation: flagWave 3s ease-in-out infinite;
+}
+
+@keyframes flagWave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.project-title {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.project-subtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.project-description {
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-metrics {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.metric {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 150px;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FFD700;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+/* Investment Highlights Section */
+.investment-highlights {
+  padding: 6rem 0;
+  background: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.investment-highlights h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #1a2332;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.highlight-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  border-left: 4px solid #10B981;
+}
+
+.highlight-icon {
+  font-size: 1.5rem;
+  color: #10B981;
+  font-weight: bold;
+  margin-top: 0.25rem;
+}
+
+.highlight-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4b5563;
+  margin: 0;
+}
+
+/* Project Phases Section */
+.project-phases {
+  padding: 6rem 0;
+  background: white;
+}
+
+.project-phases h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1a2332;
+}
+
+.phases-intro {
+  text-align: center;
+  font-size: 1.125rem;
+  color: #6b7280;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.phases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.phase-card {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.phase-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.phase-card.selected {
+  border-color: #10B981;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+}
+
+.phase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.phase-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a2332;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.phase-status {
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.phase-metrics {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.phase-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.metric-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1a2332;
+}
+
+.phase-details {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.phase-features h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a2332;
+  margin-bottom: 1rem;
+}
+
+.phase-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.phase-features li {
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+  color: #4b5563;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.phase-features li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #10B981;
+  font-weight: bold;
+}
+
+.phase-action {
+  text-align: center;
+}
+
+.inquiry-btn {
+  width: 100%;
+  background: #10B981;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.inquiry-btn:hover {
+  background: #059669;
+}
+
+/* Location Advantages Section */
+.location-advantages {
+  padding: 6rem 0;
+  background: #f8f9fa;
+}
+
+.location-advantages h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #1a2332;
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.advantage-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.advantage-icon {
+  font-size: 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.advantage-item p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #4b5563;
+  margin: 0;
+}
+
+/* Community Amenities Section */
+.community-amenities {
+  padding: 6rem 0;
+  background: white;
+}
+
+.community-amenities h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #1a2332;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.amenity-item {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.amenity-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.amenity-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.amenity-item p {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: #4b5563;
+  margin: 0;
+}
+
+/* Construction Progress Section */
+.construction-progress {
+  padding: 6rem 0;
+  background: #f8f9fa;
+}
+
+.construction-progress h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #1a2332;
+}
+
+.progress-overview {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.progress-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.progress-circle {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+.progress-fill {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-center {
+  width: 160px;
+  height: 160px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.progress-percentage {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #10B981;
+  line-height: 1;
+}
+
+.progress-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.progress-details h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a2332;
+  margin-bottom: 1.5rem;
+}
+
+.progress-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.progress-details li {
+  padding: 0.75rem 0;
+  font-size: 0.875rem;
+  color: #4b5563;
+  position: relative;
+  padding-left: 1.75rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.progress-details li:before {
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.progress-details li:nth-child(1):before { content: "✅"; color: #10B981; }
+.progress-details li:nth-child(2):before { content: "✅"; color: #10B981; }
+.progress-details li:nth-child(3):before { content: "✅"; color: #10B981; }
+.progress-details li:nth-child(4):before { content: "🔄"; color: #F59E0B; }
+.progress-details li:nth-child(5):before { content: "🔄"; color: #F59E0B; }
+.progress-details li:nth-child(6):before { content: "⏳"; color: #6B7280; }
+
+.progress-timeline h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1a2332;
+  margin-bottom: 1rem;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+}
+
+.timeline-item.completed {
+  background: #F0FDF4;
+  border-left: 4px solid #10B981;
+}
+
+.timeline-item.active {
+  background: #FEF3C7;
+  border-left: 4px solid #F59E0B;
+}
+
+.timeline-item.upcoming {
+  background: #F9FAFB;
+  border-left: 4px solid #6B7280;
+}
+
+.timeline-date {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1a2332;
+}
+
+.timeline-event {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+/* Investment Opportunity Section */
+.investment-opportunity {
+  padding: 6rem 0;
+  background: white;
+}
+
+.investment-opportunity h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #1a2332;
+}
+
+.opportunity-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.opportunity-text h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a2332;
+  margin-bottom: 1rem;
+}
+
+.opportunity-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+}
+
+.opportunity-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.opportunity-text li {
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+  color: #4b5563;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.opportunity-text li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #10B981;
+  font-weight: bold;
+}
+
+.opportunity-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #10B981;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Call to Action Section */
+.project-cta {
+  padding: 6rem 0;
+  background: #1a2332;
+  color: white;
+  text-align: center;
+}
+
+.project-cta h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.project-cta p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.primary-cta {
+  background: #10B981;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-cta:hover {
+  background: #059669;
+  transform: translateY(-2px);
+}
+
+.secondary-cta {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.secondary-cta:hover {
+  background: white;
+  color: #1a2332;
+}
+
+/* Inquiry Modal */
+.inquiry-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.inquiry-modal {
+  background: white;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #f3f4f6;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.modal-close:hover {
+  background: #e5e7eb;
+}
+
+.inquiry-content {
+  padding: 2rem;
+}
+
+.inquiry-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a2332;
+  margin-bottom: 1rem;
+}
+
+.inquiry-content p {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.inquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1a2332;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #10B981;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-inquiry {
+  background: #10B981;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-inquiry:hover {
+  background: #059669;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .project-title {
+    font-size: 3rem;
+  }
+  
+  .hero-metrics {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .metric {
+    min-width: auto;
+  }
+  
+  .progress-overview {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .opportunity-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .opportunity-stats {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 4rem 1rem 3rem;
+  }
+  
+  .project-title {
+    font-size: 2.5rem;
+  }
+  
+  .project-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .hero-metrics {
+    gap: 0.75rem;
+  }
+  
+  .metric {
+    padding: 1rem;
+    min-width: 120px;
+  }
+  
+  .metric-value {
+    font-size: 1.5rem;
+  }
+  
+  .phases-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .highlights-grid,
+  .advantages-grid,
+  .amenities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .opportunity-stats {
+    flex-direction: column;
+  }
+  
+  .inquiry-modal {
+    width: 95%;
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-title {
+    font-size: 2rem;
+  }
+  
+  .project-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .project-description {
+    font-size: 1rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .phase-card {
+    padding: 1.5rem;
+  }
+  
+  .highlight-card,
+  .advantage-item {
+    padding: 1.5rem;
+  }
+  
+  .stat-card {
+    padding: 1.5rem;
+  }
+  
+  .inquiry-content {
+    padding: 1.5rem;
+  }
+}

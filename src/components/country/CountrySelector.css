@@ -1,0 +1,114 @@
+.country-selector {
+  position: relative;
+  z-index: 1000;
+}
+
+.country-selector__trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid #D3CFCB;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 200ms ease;
+  font-size: 14px;
+  color: #1A2332;
+}
+
+.country-selector__trigger:hover {
+  border-color: #B8860B;
+  background: rgba(184, 134, 11, 0.05);
+}
+
+.country-selector__flag {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.country-selector__code {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.country-selector__chevron {
+  transition: transform 200ms ease;
+}
+
+.country-selector__trigger[aria-expanded="true"] .country-selector__chevron {
+  transform: rotate(180deg);
+}
+
+.country-selector__dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 220px;
+  background: white;
+  border: 1px solid #E8E8E8;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  animation: dropdown-appear 200ms ease;
+}
+
+@keyframes dropdown-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.country-selector__header {
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #1A2332;
+  border-bottom: 1px solid #E8E8E8;
+  background: #F8F8F8;
+}
+
+.country-selector__option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.country-selector__option:hover {
+  background: rgba(184, 134, 11, 0.08);
+}
+
+.country-selector__option--active {
+  background: rgba(184, 134, 11, 0.12);
+  font-weight: 600;
+}
+
+.country-selector__option-flag {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.country-selector__option-name {
+  flex: 1;
+  font-size: 15px;
+  color: #1A2332;
+}
+
+.country-selector__check {
+  color: #B8860B;
+  flex-shrink: 0;
+}

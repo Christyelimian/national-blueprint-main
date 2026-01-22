@@ -1,8 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCountry, COUNTRY_CONFIGS } from '@/contexts/CountryContext';
 import { COUNTRY_PROGRAMS, getOtherPrograms } from '@/data/countryPrograms';
 import { Layout } from '@/components/layout/Layout';
+import { HeroSection } from '@/components/home/HeroSection';
 import { MandateSection } from '@/components/home/MandateSection';
 import { ImpactSection } from '@/components/home/ImpactSection';
 import { ESGImpactMeasurement } from '@/components/esg/ESGImpactMeasurement';
@@ -17,122 +18,10 @@ const Homepage = () => {
   const featuredProgram = COUNTRY_PROGRAMS[selectedCountry];
   const otherPrograms = getOtherPrograms(selectedCountry);
 
-  // Video state
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Try to autoplay on mount
-  useEffect(() => {
-    if (videoRef.current) {
-      const video = videoRef.current;
-      
-      // Handle video load
-      const handleLoadedData = () => {
-        setIsVideoLoaded(true);
-        video.play().catch(() => {
-          console.log('Video autoplay blocked - user interaction required');
-          setIsPlaying(false);
-        });
-      };
-
-      video.addEventListener('loadeddata', handleLoadedData);
-      
-      return () => {
-        video.removeEventListener('loadeddata', handleLoadedData);
-      };
-    }
-  }, []);
-
-  // Video controls
-  const toggleVideo = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        // Try to play, handling autoplay policies
-        videoRef.current.play().catch(() => {
-          console.log('Video autoplay prevented by browser');
-        });
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
-
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="hero">
-        <div className="hero__background">
-          {/* Video Background */}
-          <video
-            ref={videoRef}
-            autoPlay
-            muted={isMuted}
-            loop
-            playsInline
-            className={`hero__video ${isVideoLoaded ? 'loaded' : ''} ${isPlaying ? 'playing' : ''}`}
-          >
-            <source src="/videos/site-overview.mp4" type="video/mp4" />
-          </video>
-          
-          {/* Fallback Image */}
-          <img 
-            src="/images/hero-infrastructure.webp" 
-            alt="Infrastructure development"
-            className={`hero__image hero__image-fallback ${isPlaying && isVideoLoaded ? 'hidden' : ''}`}
-          />
-        </div>
-        <div className="hero__content">
-          {/* Video Controls */}
-          <div className="hero__video-controls">
-            <button 
-              className="hero__video-control hero__video-pause"
-              onClick={toggleVideo}
-              aria-label={isPlaying ? 'Pause video' : 'Play video'}
-            >
-              {isPlaying ? '⏸' : '▶️'}
-            </button>
-            <button 
-              className="hero__video-control hero__video-sound"
-              onClick={toggleMute}
-              aria-label={isMuted ? 'Unmute video' : 'Mute video'}
-            >
-              {isMuted ? '🔇' : '🔊'}
-            </button>
-          </div>
-          
-          <h1 className="hero__title">
-            Designing Africa's Next Generation Cities,<br />
-            Infrastructure & National Assets
-          </h1>
-          <p className="hero__subtitle">
-            PPP • BOT • Mega Cities • National Infrastructure • Development Finance
-          </p>
-          <div className="hero__metrics">
-            <div className="metric">
-              <div className="metric__value">$38B+</div>
-              <div className="metric__label">Project Pipeline</div>
-            </div>
-            <div className="metric">
-              <div className="metric__value">4</div>
-              <div className="metric__label">Countries</div>
-            </div>
-            <div className="metric">
-              <div className="metric__value">PPP/BOT</div>
-              <div className="metric__label">Delivery Models</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Institutional Mandate */}
       <section className="mandate">
@@ -234,11 +123,8 @@ const Homepage = () => {
                     <span className="program-card__country">
                       {COUNTRY_CONFIGS[program.country as keyof typeof COUNTRY_CONFIGS]?.name || program.country}
                     </span>
-                  </div>
-                  <h3 className="program-card__title">{program.title}</h3>
-                  <p className="program-card__investment">{program.investment}</p>
-                  <div className={`program-card__status status-badge--${program.statusType}`}>
-                    {program.status}
+                    <h3>{program.title}</h3>
+                    <p className="program-card__subtitle">{program.subtitle}</p>
                   </div>
                 </div>
               </Link>

@@ -1,0 +1,895 @@
+/* Nigeria National Platform - Complete Strategic Architecture */
+
+/* Hero Section with Interactive Map */
+.nigeria-platform {
+  min-height: 100vh;
+}
+
+.nigeria-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
+}
+
+.hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-flag {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  animation: flagWave 3s ease-in-out infinite;
+}
+
+@keyframes flagWave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero-subtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Floating Metrics */
+.floating-metrics {
+  position: absolute;
+  top: 8rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 10;
+}
+
+.metric-card {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #FFD700;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  animation: pulse 2s ease-in-out infinite;
+  min-width: 200px;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+  50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 215, 0, 0.8); }
+}
+
+.metric-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFD700;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+/* Interactive Nigeria Map */
+.nigeria-map-container {
+  position: relative;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.map-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.nigeria-map {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 400px;
+}
+
+.map-regions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.map-region {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-region::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.map-region:hover::before {
+  opacity: 1;
+}
+
+.map-region:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.map-region--gold {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+  border-color: #FFD700;
+}
+
+.map-region--blue {
+  background: linear-gradient(135deg, rgba(65, 105, 225, 0.2), rgba(65, 105, 225, 0.1));
+  border-color: #4169E1;
+}
+
+.map-region--green {
+  background: linear-gradient(135deg, rgba(50, 205, 50, 0.2), rgba(50, 205, 50, 0.1));
+  border-color: #32CD32;
+}
+
+.region-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.region-status {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.region-metrics {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.region-click {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #FFD700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.scroll-indicator {
+  text-align: center;
+  margin-top: 3rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+.scroll-text {
+  font-size: 0.875rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* National Context Section */
+.national-context {
+  padding: 6rem 0;
+  background: #f8f9fa;
+}
+
+.national-context h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #1a2332;
+}
+
+.portfolio-overview {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.overview-card {
+  background: white;
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.overview-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1a2332;
+  text-align: center;
+}
+
+.portfolio-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.portfolio-section h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #1a2332;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #b8860b;
+}
+
+.check, .idea {
+  font-size: 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.project-item strong {
+  color: #1a2332;
+  font-weight: 600;
+}
+
+/* Strategic Framework Section */
+.strategic-framework {
+  padding: 6rem 0;
+  background: #1a2332;
+  color: white;
+}
+
+.strategic-framework h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: white;
+}
+
+.framework-structure {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.framework-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(255, 215, 0, 0.1);
+  border: 2px solid #FFD700;
+  border-radius: 12px;
+}
+
+.framework-header h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #FFD700;
+  margin: 0;
+}
+
+.framework-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tier {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tier-1 {
+  border-color: #FFD700;
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.tier-2 {
+  border-color: #4169E1;
+  background: rgba(65, 105, 225, 0.05);
+}
+
+.tier-3 {
+  border-color: #32CD32;
+  background: rgba(50, 205, 50, 0.05);
+}
+
+.tier h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tier-1 h4 { color: #FFD700; }
+.tier-2 h4 { color: #4169E1; }
+.tier-3 h4 { color: #32CD32; }
+
+.tier-content {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.sub-tier h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.sub-tier ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sub-tier li {
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+}
+
+.portfolio-summary {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.summary-item {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* Active Projects Section */
+.active-projects {
+  padding: 6rem 0;
+  background: white;
+}
+
+.active-projects h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #1a2332;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.active-project {
+  background: white;
+  border: 2px solid #FFD700;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.active-project::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.project-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a2332;
+  margin: 0;
+}
+
+.project-status {
+  background: #FFD700;
+  color: #1a2332;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.project-details {
+  margin-bottom: 1.5rem;
+}
+
+.project-details div {
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.project-details strong {
+  color: #1a2332;
+  font-weight: 600;
+}
+
+.project-progress {
+  margin-bottom: 1.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-align: right;
+}
+
+.project-type {
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.project-link {
+  display: inline-block;
+  color: #b8860b;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #1a2332;
+}
+
+/* Slide-in Panel */
+.slide-panel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.slide-panel {
+  background: #1a2332;
+  color: white;
+  border-radius: 16px;
+  max-width: 900px;
+  max-height: 90vh;
+  width: 90%;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 2px solid #FFD700;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.panel-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.panel-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.panel-content {
+  padding: 3rem;
+}
+
+.panel-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #FFD700;
+}
+
+.panel-status {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid #FFD700;
+  border-radius: 8px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.panel-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.panel-metric {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.panel-metric span {
+  color: #FFD700;
+  font-weight: 600;
+}
+
+.panel-section {
+  margin-bottom: 2rem;
+}
+
+.panel-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.panel-section p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+}
+
+.panel-project {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #FFD700;
+}
+
+.panel-project h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #FFD700;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.project-grid strong {
+  color: #FFD700;
+}
+
+.planned-project {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid #4169E1;
+}
+
+.planned-project h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #4169E1;
+}
+
+.panel-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.panel-back {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.panel-back:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.panel-download {
+  background: #FFD700;
+  color: #1a2332;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.panel-download:hover {
+  background: #FFA500;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .floating-metrics {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .portfolio-sections {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .slide-panel {
+    width: 95%;
+    max-height: 95vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 6rem 1rem 3rem;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .floating-metrics {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .metric-card {
+    min-width: auto;
+  }
+  
+  .map-regions {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .framework-tiers {
+    gap: 1rem;
+  }
+  
+  .tier {
+    padding: 1.5rem;
+  }
+  
+  .portfolio-summary {
+    grid-template-columns: 1fr;
+  }
+  
+  .panel-content {
+    padding: 2rem;
+  }
+  
+  .panel-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .map-region {
+    padding: 1.5rem;
+  }
+  
+  .overview-card {
+    padding: 2rem;
+  }
+  
+  .active-project {
+    padding: 1.5rem;
+  }
+  
+  .panel-content {
+    padding: 1.5rem;
+  }
+}

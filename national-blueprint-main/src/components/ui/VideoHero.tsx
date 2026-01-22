@@ -10,7 +10,7 @@ interface VideoHeroProps {
 }
 
 export const VideoHero: React.FC<VideoHeroProps> = ({ 
-  videoSrc = '/assets/premiumhomes-video.mp4', 
+  videoSrc = '/premiumhomes-video.mp4', 
   title, 
   subtitle,
   className = '',

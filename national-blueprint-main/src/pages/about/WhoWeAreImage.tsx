@@ -12,7 +12,7 @@ const WhoWeAre = () => {
         {/* Background with Image */}
         <div className="absolute inset-0">
           <img 
-            src="/assets/who-we-are.png" 
+            src="/who-we-are.png" 
             alt="Premium Architecture"
             className="w-full h-full object-cover"
             onError={(e) => {

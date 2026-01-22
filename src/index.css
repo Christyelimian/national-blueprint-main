@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import './styles/mobile.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Homes Design System
+   Two Themes: Institutional (Navy/Gold) & Emerald (Green/Lime)
+   All colors in HSL format
+*/
+
+@layer base {
+  /* Institutional Theme - Navy & Gold */
+  :root,
+  [data-theme="institutional"] {
+    /* Core Colors */
+    --background: 220 20% 98%;
+    --foreground: 220 25% 14%;
+    
+    /* Surface - Slight off-white */
+    --surface: 220 15% 95%;
+    
+    /* Card */
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 14%;
+    
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 14%;
+    
+    /* Primary - Deep Navy */
+    --primary: 220 25% 14%;
+    --primary-foreground: 45 30% 96%;
+    
+    /* Secondary - Charcoal */
+    --secondary: 210 20% 25%;
+    --secondary-foreground: 45 30% 96%;
+    
+    /* Muted */
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+    
+    /* Accent - Warm Gold */
+    --accent: 43 70% 40%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Border & Input */
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 43 70% 40%;
+    
+    /* Radius */
+    --radius: 0.125rem;
+    
+    /* Hero Section */
+    --hero-bg: 220 25% 14%;
+    --hero-foreground: 45 30% 96%;
+    --hero-muted: 220 15% 75%;
+    
+    /* Gradients */
+    --hero-gradient: linear-gradient(165deg, hsl(220 25% 14%) 0%, hsl(210 20% 22%) 100%);
+    
+    /* Shadows */
+    --shadow-subtle: 0 1px 3px 0 hsl(220 25% 14% / 0.05);
+    --shadow-card: 0 4px 20px -4px hsl(220 25% 14% / 0.08);
+    --shadow-elevated: 0 12px 40px -8px hsl(220 25% 14% / 0.12);
+    
+    /* Sidebar */
+    --sidebar-background: 220 20% 97%;
+    --sidebar-foreground: 220 25% 14%;
+    --sidebar-primary: 43 70% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 92%;
+    --sidebar-accent-foreground: 220 25% 14%;
+    --sidebar-border: 220 15% 88%;
+    --sidebar-ring: 43 70% 40%;
+  }
+
+  /* Lemon Theme - Lemon Green & Lime */
+  [data-theme="lemon"] {
+    /* Core Colors */
+    --background: 140 20% 98%;
+    --foreground: 160 30% 12%;
+    
+    /* Surface */
+    --surface: 140 15% 95%;
+    
+    /* Card */
+    --card: 0 0% 100%;
+    --card-foreground: 160 30% 12%;
+    
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 30% 12%;
+    
+    /* Primary - Deep Forest Green */
+    --primary: 160 30% 15%;
+    --primary-foreground: 80 60% 95%;
+    
+    /* Secondary - Sage */
+    --secondary: 150 20% 28%;
+    --secondary-foreground: 80 60% 95%;
+    
+    /* Muted */
+    --muted: 140 12% 92%;
+    --muted-foreground: 150 10% 45%;
+    
+    /* Accent - Lemon Lime */
+    --accent: 75 70% 45%;
+    --accent-foreground: 160 30% 10%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Border & Input */
+    --border: 140 15% 88%;
+    --input: 140 15% 88%;
+    --ring: 75 70% 45%;
+    
+    /* Hero Section */
+    --hero-bg: 160 30% 15%;
+    --hero-foreground: 80 60% 95%;
+    --hero-muted: 150 15% 70%;
+    
+    /* Gradients */
+    --hero-gradient: linear-gradient(165deg, hsl(160 30% 15%) 0%, hsl(150 25% 22%) 100%);
+    
+    /* Shadows */
+    --shadow-subtle: 0 1px 3px 0 hsl(160 30% 12% / 0.05);
+    --shadow-card: 0 4px 20px -4px hsl(160 30% 12% / 0.08);
+    --shadow-elevated: 0 12px 40px -8px hsl(160 30% 12% / 0.12);
+    
+    /* Sidebar */
+    --sidebar-background: 140 20% 97%;
+    --sidebar-foreground: 160 30% 12%;
+    --sidebar-primary: 75 70% 45%;
+    --sidebar-primary-foreground: 160 30% 10%;
+    --sidebar-accent: 140 15% 92%;
+    --sidebar-accent-foreground: 160 30% 12%;
+    --sidebar-border: 140 15% 88%;
+    --sidebar-ring: 75 70% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  /* Hero Gradient Background */
+  .bg-hero-gradient {
+    background: var(--hero-gradient);
+  }
+  
+  /* Text Colors for Hero */
+  .text-hero-foreground {
+    color: hsl(var(--hero-foreground));
+  }
+  
+  .text-hero-muted {
+    color: hsl(var(--hero-muted));
+  }
+  
+  /* Surface Background */
+  .bg-surface {
+    background-color: hsl(var(--surface));
+  }
+  
+  /* Custom Shadows */
+  .shadow-subtle {
+    box-shadow: var(--shadow-subtle);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+  
+  /* Institutional Button Styles */
+  .btn-institutional {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-sans text-sm tracking-wide transition-all duration-300;
+  }
+  
+  .btn-institutional:hover {
+    @apply bg-primary/90;
+  }
+  
+  .btn-outline-institutional {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border border-border bg-transparent text-foreground font-sans text-sm tracking-wide transition-all duration-300;
+  }
+  
+  .btn-outline-institutional:hover {
+    @apply border-accent text-accent;
+  }
+}
+
+@layer utilities {
+  /* Tracking utilities for institutional typography */
+  .tracking-institutional {
+    letter-spacing: 0.15em;
+  }
+  
+  /* Transition utilities */
+  .transition-institutional {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
