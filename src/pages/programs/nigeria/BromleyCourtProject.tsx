@@ -173,19 +173,19 @@ const BromleyCourtProject = () => {
                     <p>Visual documentation of Bromley Court development progress</p>
                     <div className="gallery-grid">
                       <img 
-                        src="/images/projects/gallery/bromley%201.jpeg" 
+                        src="/images/projects/gallery/bromley-1.jpeg" 
                         alt="Bromley Court site view - progress update" 
                         className="gallery-image"
                         loading="lazy"
                       />
                       <img 
-                        src="/images/projects/gallery/bromley%202.jpeg" 
+                        src="/images/projects/gallery/bromley-2.jpeg" 
                         alt="Bromley Court construction detail" 
                         className="gallery-image"
                         loading="lazy"
                       />
                       <img 
-                        src="/images/projects/gallery/bromley%203.jpeg" 
+                        src="/images/projects/gallery/bromley-3.jpeg" 
                         alt="Bromley Court aerial view" 
                         className="gallery-image"
                         loading="lazy"
@@ -203,7 +203,7 @@ const BromleyCourtProject = () => {
                         preload="metadata"
                         aria-label="Bromley Court under construction - Part 1"
                       >
-                        <source src="/videos/broomley%20court%20under%20construction%201.mp4" type="video/mp4" />
+                        <source src="/videos/broomley-court-under-construction-1.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <video 
@@ -212,7 +212,7 @@ const BromleyCourtProject = () => {
                         preload="metadata"
                         aria-label="Bromley Court under construction - Part 2"
                       >
-                        <source src="/videos/broomley%20court%20under%20construction%202.mp4" type="video/mp4" />
+                        <source src="/videos/broomley-court-under-construction-2.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <video 
@@ -221,7 +221,7 @@ const BromleyCourtProject = () => {
                         preload="metadata"
                         aria-label="Bromley Court under construction - Part 3"
                       >
-                        <source src="/videos/broomley%20court%20under%20construction%203.mp4" type="video/mp4" />
+                        <source src="/videos/broomley-court-under-construction-3.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <video 
@@ -230,7 +230,7 @@ const BromleyCourtProject = () => {
                         preload="metadata"
                         aria-label="Bromley Court under construction - Part 4"
                       >
-                        <source src="/videos/broomley%20court%20under%20construction%204.mp4" type="video/mp4" />
+                        <source src="/videos/broomley-court-under-construction-4.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <video 
@@ -239,7 +239,7 @@ const BromleyCourtProject = () => {
                         preload="metadata"
                         aria-label="Bromley Court under construction - Part 5"
                       >
-                        <source src="/videos/broomley%20court%20under%20construction%205.mp4" type="video/mp4" />
+                        <source src="/videos/broomley-court-under-construction-5.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                     </div>
